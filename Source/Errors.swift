@@ -46,7 +46,7 @@ public struct MyError: Error {
             finalInfo = finalInfo.merged(with: userInfo)
         }
         
-        return NSError(domain: "com.honzadvorsky.Buildasaur", code: 0, userInfo: finalInfo)
+        return NSError(domain: "com.honzadvorsky.Buildasaur", code: 0, userInfo: finalInfo as? [String : Any])
     }
 }
 

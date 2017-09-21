@@ -9,7 +9,7 @@
 import Foundation
 import SwiftSafe
 
-open class ResponseInfo: AnyObject {
+open class ResponseInfo {
     open let response: HTTPURLResponse
     open let body: AnyObject?
     

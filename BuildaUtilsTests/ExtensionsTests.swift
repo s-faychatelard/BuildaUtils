@@ -18,12 +18,12 @@ class ExtensionsTests: XCTestCase {
     
     func testAcceptingArrays() {
         XCTempAssertNoThrowError() {
-            try self.xcode7.dateString()
-            try self.xcode6.dateString()
+            let _ = try self.xcode7.dateString()
+            let _ = try self.xcode6.dateString()
         }
         
         XCTempAssertThrowsSpecificError(DateParsingError.wrongNumberOfElements(4)) {
-            try [1, 2, 3, 4].dateString()
+            let _ = try [1, 2, 3, 4].dateString()
         }
     }
     

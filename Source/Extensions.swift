@@ -56,7 +56,7 @@ public enum DateParsingError: Error {
     case wrongNumberOfElements(Int)
 }
 
-public extension Array where Element: Integer {
+public extension Array where Element: BinaryInteger {
     
     public func dateString() throws -> String {
         let elementsCount = self.count

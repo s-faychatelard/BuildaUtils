@@ -29,7 +29,7 @@ open class HTTP {
         }
     }
     
-    public typealias Completion = (_ response: URLResponse?, _ body: Any?, _ error: Error?) -> ()
+    public typealias Completion = (_ response: HTTPURLResponse?, _ body: Any?, _ error: Error?) -> ()
 
     open func sendRequest(_ request: URLRequest, completion: @escaping Completion) -> URLSessionTask {
         
@@ -71,7 +71,7 @@ open class HTTP {
                             
                             switch code {
                             case 401:
-                                return ["Response": string]
+                                return ["Response": string ?? ""]
                             default:
                                 return nil;
                             }
