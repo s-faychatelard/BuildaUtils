@@ -39,7 +39,7 @@ public extension String {
         
         var stripped = self
         if stripped.hasSuffix("\n") {
-            stripped.remove(at: stripped.characters.index(before: stripped.endIndex))
+            stripped.remove(at: stripped.index(before: stripped.endIndex))
         }
         return stripped
     }

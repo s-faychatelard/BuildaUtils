@@ -9,9 +9,14 @@
 import Foundation
 
 public protocol Logger {
-    
     func description() -> String
     func log(_ message: String)
+}
+
+extension Logger {
+    public func id() -> String {
+        return "\(String(describing: self))"
+    }
 }
 
 open class FileLogger: Logger {
@@ -127,10 +132,22 @@ open class ConsoleLogger: Logger {
 open class Log {
     
     static fileprivate var _loggers = [Logger]()
+
+    public class var loggers: [Logger] {
+        return _loggers
+    }
+
     open class func addLoggers(_ loggers: [Logger]) {
         for i in loggers {
             _loggers.append(i)
             print("Added logger: \(i)")
+        }
+    }
+
+    open class func removeLogger(_ logger: Logger) {
+        if let i = _loggers.index(where: { $0.id() == logger.id() }) {
+            _loggers.remove(at: i)
+            print("Removed logger: \(logger)")
         }
     }
     
